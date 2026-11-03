@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ALIVID — сайт инженерной компании
 
-## Getting Started
+Премиальный сайт ALIVID: видеонаблюдение, контроль доступа и сетевая инфраструктура в Караганде и Карагандинской области.
 
-First, run the development server:
+## Запуск локально
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Откройте [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Сборка и проверка
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## Публикация
 
-To learn more about Next.js, take a look at the following resources:
+1. Создайте репозиторий и загрузите проект.
+2. Подключите его к [Vercel](https://vercel.com) или другому хостингу с поддержкой Next.js.
+3. Задайте переменную окружения `NEXT_PUBLIC_SITE_URL` — публичный адрес сайта, например `https://example.com`.
+4. После деплоя проверьте форму заявки: она открывает WhatsApp Click-to-Chat на номер `+7 778 624 1330`. Сообщение отправляется только после подтверждения пользователем.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Что уже работает
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Главная с scroll-сценами: камера, чертёж, кабели, сборка шкафа, диагностика, удалённый просмотр.
+- Страницы услуг `/services/[slug]`.
+- Форма расчёта → WhatsApp с готовым текстом.
+- SEO, Open Graph, favicon, JSON-LD LocalBusiness только с подтверждёнными данными.
+- Мобильная панель «Позвонить» / WhatsApp.
+- Упрощение анимаций при `prefers-reduced-motion` и на узких экранах.
 
-## Deploy on Vercel
+## Будущие интеграции
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Форма сейчас не ходит на сервер. Для Telegram Bot или WhatsApp Business API нужен отдельный защищённый backend: приём заявки, проверка, хранение и отправка через официальный API. Клиентский Click-to-Chat для этого не подходит.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Контакты в коде
+
+Все телефоны, услуги и тексты вынесены в `src/config/`.
